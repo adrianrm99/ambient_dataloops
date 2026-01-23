@@ -1,6 +1,6 @@
 # Paths and parameters (customize these)
-output_path="./outputs/generations/coco/ambient-loops"
-model_path=giannisdaras/ambient-loops
+output_path="./outputs/generations/coco/ambient-dataloops"
+model_path=adrianrm/ambient-dataloops
 guidance_scale=1.50
 num_inference_steps=30
 dataset_captions_path="./prompts/MS-COCO_val2014_30k_captions.csv" # https://github.com/boomb0om/text2image-benchmark/tree/main?tab=readme-ov-file

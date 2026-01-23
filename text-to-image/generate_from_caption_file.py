@@ -69,13 +69,8 @@ def main(args):
 
     # Model loading
     print("Loading model...")
-    if args.model_path.startswith('giannisdaras/'):
-        if 'giannisdaras/ambient-o' == args.model_path:
-            filename = 'model.safetensors'
-        elif 'giannisdaras/ambient-loops' == args.model_path:
-            filename = 'ema.safetensors'
-        else:
-            filename = 'model.safetensors'
+    if args.model_path.startswith('giannisdaras/') or args.model_path.startswith('adrianrm/'):
+        filename = 'model.safetensors'
         model_dict_path = hf_hub_download(repo_id=args.model_path, filename=filename)
 
         model_dict = {}

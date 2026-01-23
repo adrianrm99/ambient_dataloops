@@ -155,8 +155,8 @@ def generate(cfg: DictConfig) -> None:
         raise ValueError('checkpoint_path must be specified in config for inference')
     
     checkpoint_path = cfg.checkpoint_path
-    if checkpoint_path.startswith('giannisdaras/'):
-        checkpoint_path = hf_hub_download(repo_id="giannisdaras/ambient-o", filename="model.safetensors")
+    if checkpoint_path.startswith('giannisdaras/') or checkpoint_path.startswith('adrianrm/'):
+        checkpoint_path = hf_hub_download(repo_id=checkpoint_path, filename="model.safetensors")
     if not os.path.exists(checkpoint_path):
         raise FileNotFoundError(f"Checkpoint not found at {checkpoint_path}")
 

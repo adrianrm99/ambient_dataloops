@@ -1,7 +1,7 @@
 
 # Ambient Dataloops + Text-to-Image Diffusion w/ Micro-Diffusion
-[![Hugging Face Spaces](https://img.shields.io/badge/🤗%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/giannisdaras/ambient-loops-text2image)
-[![Hugging Face Model](https://img.shields.io/badge/🤗%20Hugging%20Face-Model-orange)](https://huggingface.co/giannisdaras/ambient-loops)
+[![Hugging Face Spaces](https://img.shields.io/badge/🤗%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/adrianrm/ambient-dataloops-text2image)
+[![Hugging Face Model](https://img.shields.io/badge/🤗%20Hugging%20Face-Model-orange)](https://huggingface.co/adrianrm/ambient-dataloops)
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 
 This part of the repo focuses on large-scale text-to-image diffusion experiments with [Micro-Diffusion](https://github.com/SonyResearch/micro_diffusion) using Conceptual Captions, Segment Anything-1B, TextCaps, JourneyDB, and DiffusionDB. Here, we show how just by using the data better, you can improve the performance and quality of your generative models. The key idea is to refine our lower quality model-generated images. High-quality data (real or strong model synthetic) is kept as-is, while low-quality data is refined by using posterior sampling starting from the diffusion time it was used during the Ambient Omni stage (loop 0).
@@ -11,7 +11,7 @@ This allows us to obtain much better generation quality than without data refine
 ![Generated Images](../figs/loops_tti.jpg)
 
 ## Using our models
-You can generate your own images with the following snippet, which uses our ambient model on [huggingface](https://huggingface.co/giannisdaras/ambient-loops)
+You can generate your own images with the following snippet, which uses our ambient model on [huggingface](https://huggingface.co/adrianrm/ambient-dataloops)
 ```python
 import torch
 from micro_diffusion.models.model import create_latent_diffusion
@@ -27,7 +27,7 @@ params = {
 model = create_latent_diffusion(**params).to('cuda')
 
 # Download weights from HF
-model_dict_path = hf_hub_download(repo_id="giannisdaras/ambient-loops", filename="ema.safetensors")
+model_dict_path = hf_hub_download(repo_id="adrianrm/ambient-dataloops", filename="model.safetensors")
 model_dict = {}
 with safe_open(model_dict_path, framework="pt", device="cpu") as f:
    for key in f.keys():
@@ -78,11 +78,11 @@ Use the script `scripts/restore_diffdb_ambient.sh` to refine the DiffusionDB dat
 
 ### 4. Train your loop1 diffusion model on the refined data
 
-Use the script `scripts/train_e2e_loops.sh` to train the loop1 model. It fine-tunes an intermediate checkpoint from the loop0 run. You can obtain it by training loop0 yourself or by downloading from our [huggingface](https://huggingface.co/giannisdaras/ambient-loops). Either way, you should have the file `./trained_models/OmniDiTXL_mask_75_res_512_pretrain/latest-rank0.pt`.
+Use the script `scripts/train_e2e_loops.sh` to train the loop1 model. It fine-tunes an intermediate checkpoint from the loop0 run. You can obtain it by training loop0 yourself or by downloading from our [huggingface](https://huggingface.co/adrianrm/ambient-dataloops). Either way, you should have the file `./trained_models/OmniDiTXL_mask_75_res_512_pretrain/latest-rank0.pt`.
 
 ## COCO Evaluation
 
-The script for generating the images is `scripts/generate_coco_loops.sh`. The generation scripts use our [huggingface loops checkpoint](https://huggingface.co/giannisdaras/ambient-loops) by default, but you can change the path to your own models. The script for evaluating FID is `scripts/eval_fid.sh`.
+The script for generating the images is `scripts/generate_coco_loops.sh`. The generation scripts use our [huggingface loops checkpoint](https://huggingface.co/adrianrm/ambient-dataloops) by default, but you can change the path to your own models. The script for evaluating FID is `scripts/eval_fid.sh`.
 
 # 🔗 Related Codebases
 
