@@ -102,12 +102,11 @@ model = model.eval()
 
 # Generate images
 prompts = [
-    "Pirate ship trapped in a cosmic maelstrom nebula, rendered in cosmic beach whirlpool engine, volumet",
-    "A illustration from a graphic novel. A bustling city street under the shine of a full moon.",
-    "A giant cobra snake made from corn",
-    "A fierce garden gnome warrior, clad in armor crafted from leaves and bark, brandishes a tiny sword.",
-    "A capybara made of lego sitting in a realistic, natural field",
-    "a close-up of a fire spitting dragon, cinematic shot.",
+    "A giraffe standing in an open field next to some rocks.",
+    "A bike parked next to a red door on the front of a house.",
+    "An apple tree filled with lots of apples.",
+    "An empty train station has very nice clocks.",
+    "A parking lot filled with buses parked next to each other."
     "Panda mad scientist mixing sparkling chemicals, artstation",
     "the sailor galaxia. beautiful, realistic painting by mucha and kuvshinov and bilibin. watercolor, thick lining, manga, soviet realism",
 ]
