@@ -4,8 +4,8 @@
 
 # Ambient Dataloops
 
-[![Hugging Face Spaces](https://img.shields.io/badge/🤗%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/giannisdaras/ambient-loops-text2image)
-[![Hugging Face Model](https://img.shields.io/badge/🤗%20Hugging%20Face-Model-orange)](https://huggingface.co/giannisdaras/ambient-loops)
+[![Hugging Face Spaces](https://img.shields.io/badge/🤗%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/adrianrm/ambient-dataloops-text2image)
+[![Hugging Face Model](https://img.shields.io/badge/🤗%20Hugging%20Face-Model-orange)](https://huggingface.co/adrianrm/ambient-dataloops)
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 
 This repository hosts the official PyTorch implementation of the paper: [Ambient Dataloops: Generative Models for Dataset Refinement](https://arxiv.org/abs/2601.15417)
@@ -28,7 +28,7 @@ Authored by: Adrián Rodríguez-Muñoz, William Daspit, Adam Klivans, Antonio To
 
 Our model refines its training data at each iteration of our algorithm: the Dataloop. When data, not compute, is the bottleneck, our method increases the quality and diversity of trained models, solely from using cleverly our precious available data. We don't make any changes in the architecture, training/sampling hyperparameters or the optimization algorithm. Simply train, refine, and repeat.
 
-👉 Try it out on [Hugging Face Spaces](https://huggingface.co/spaces/giannisdaras/ambient-loops-text2image): an interactive demo of the Ambient-o text-to-image model.
+👉 Try it out on [Hugging Face Spaces](https://huggingface.co/spaces/adrianrm/ambient-dataloops-text2image): an interactive demo of the Ambient-o text-to-image model.
 
 ### Text-to-image results
 
@@ -66,7 +66,7 @@ Check out the paper for many more results.
 ## Text-to-image model
 
 The pre-trained model is available on Hugging Face:
-[giannisdaras/ambient-loops](https://huggingface.co/giannisdaras/ambient-loops).
+[adrianrm/ambient-dataloops](https://huggingface.co/adrianrm/ambient-dataloops).
 
 To use it, you can run the following:
 
@@ -85,7 +85,7 @@ params = {
 model = create_latent_diffusion(**params).to('cuda')
 
 # Download weights from HF
-model_dict_path = hf_hub_download(repo_id="giannisdaras/ambient-loops", filename="ema.safetensors")
+model_dict_path = hf_hub_download(repo_id="adrianrm/ambient-dataloops", filename="model.safetensors")
 model_dict = {}
 with safe_open(model_dict_path, framework="pt", device="cpu") as f:
    for key in f.keys():
