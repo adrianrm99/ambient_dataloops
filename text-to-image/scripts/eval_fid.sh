@@ -5,7 +5,7 @@ DIR2=./datadir/coco/raw/val2014
 BATCH_SIZE=64
 
 # --- Run the Python script ---
-python3 compute_fid.py \
+python3 eval_fid.py \
   "$DIR1" \
   "$DIR2" \
   --batch-size "$BATCH_SIZE"
