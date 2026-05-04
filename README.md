@@ -28,7 +28,7 @@ Authored by: Adrián Rodríguez-Muñoz, William Daspit, Adam Klivans, Antonio To
 
 Our model refines its training data at each iteration of our algorithm: the Dataloop. When data, not compute, is the bottleneck, our method increases the quality and diversity of trained models, solely from using cleverly our precious available data. We don't make any changes in the architecture, training/sampling hyperparameters or the optimization algorithm. Simply train, refine, and repeat.
 
-👉 Try it out on [Hugging Face Spaces](https://huggingface.co/spaces/adrianrm/ambient-dataloops-text2image): an interactive demo of the Ambient-o text-to-image model.
+👉 Try it out on [Hugging Face Spaces](https://huggingface.co/spaces/adrianrm/ambient-dataloops-text2image): an interactive demo of the Ambient-dataloops text-to-image model.
 
 ### Text-to-image results
 
